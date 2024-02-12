@@ -1,0 +1,67 @@
+body{
+    background: #333;
+    display:grid;
+    place-content: center;
+    height: 90vh;
+}
+
+.hamburgerContainer{
+    width:200px;
+    height:200px;
+    background: radial-gradient(circle at 50% 50%,rgb(1, 199, 244),rgba(0, 76, 255, 0.956));
+    opacity: 0.7;
+    border-radius: 30px;
+}
+
+#menuToggle{
+    display: none;
+}
+
+.menuBarContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+}
+
+.menuBar, .menuBar::before, .menuBar::after{
+    position: absolute;
+    height: 10px;
+    width: 140px;
+    background: #333;
+    border-radius: 10px;
+    transition: 300ms cubic-bezier(.54,-0.65,.45,1.65);
+}
+
+.menuBar{
+    left: 30px;
+}
+
+.menuBar::before, .menuBar::after{
+    content: "";
+}
+
+.menuBar::before{
+    margin-top: -40px;
+}
+
+.menuBar::after{
+    margin-top: 40px;
+}
+
+#menuToggle:checked + .menuBarContainer .menuBar{
+    width: 0;
+}
+
+#menuToggle:checked + .menuBarContainer .menuBar::before{
+transform: rotate(45deg);
+margin-top: 0%;
+}
+
+#menuToggle:checked + .menuBarContainer .menuBar::after{
+    transform: rotate(-45deg);
+    margin-top: 0%;
+}
